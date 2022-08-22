@@ -19,7 +19,7 @@ def test(space, k_rota, k,n):
                 for x in range(s):
                     for y in range(s):
                         space1[h+x][v+y] += k_rota[i][x][y]
-                if check(space1,k,n) == True:
+                if check(space1,k,n):
                     return True
     return False
 
