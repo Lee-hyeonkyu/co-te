@@ -1,4 +1,4 @@
-w,h = map(int,input().split())
+w, h = map(int, input().split())
 lst = []
 for i in range(w):
     lst.append(list(input()))

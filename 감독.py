@@ -1,8 +1,8 @@
 import math
 
 n = int(input())
-room = list(map(int,input().split()))
-spvr = list(map(int,input().split()))
+room = list(map(int, input().split()))
+spvr = list(map(int, input().split()))
 
 cnt = 0
 for i in range(n):

@@ -1,16 +1,23 @@
 import copy
 
-key = [[0, 0, 0], [1, 0, 0],[0,1,1]]
-lock = [[1, 1, 1], [1, 1, 0], [1, 0, 1]]
+key = [[0, 0, 0],
+       [1, 0, 0],
+       [0, 1, 1]]
 
-def check(space,k,n):
+lock = [[1, 1, 1],
+        [1, 1, 0],
+        [1, 0, 1]]
+
+
+def check(space, k, n):
     for i in range(n):
         for j in range(n):
             if space[k+i][k+j] != 1:
                 return False
     return True
 
-def test(space, k_rota, k,n):
+
+def test(space, k_rota, k, n):
     s = len(k_rota[0])
     for i in range(4):
         for h in range(k+n):
@@ -19,9 +26,10 @@ def test(space, k_rota, k,n):
                 for x in range(s):
                     for y in range(s):
                         space1[h+x][v+y] += k_rota[i][x][y]
-                if check(space1,k,n):
+                if check(space1, k, n):
                     return True
     return False
+
 
 def solution(key, lock):
     # key 회전
@@ -29,7 +37,7 @@ def solution(key, lock):
         key,
         list(zip(*reversed(key))),
         list(map(lambda x:list(reversed(x)), reversed(key))),
-        list(reversed(list(map(list,zip(*key)))))
+        list(reversed(list(map(list, zip(*key)))))
     ]
 
     k = len(key)-1
@@ -39,14 +47,14 @@ def solution(key, lock):
     for i in range(n):
         for j in range(n):
             space[k+i][k+j] = lock[i][j]
-    
-    if test(space, k_rota, k,n) == True:
+
+    if test(space, k_rota, k, n):
         return True
     else:
         return False
 
-print(solution(key,lock))
 
+print(solution(key, lock))
 
 
 '''
@@ -67,9 +75,6 @@ def test(space1, k_rota, i, j, x,k,n):
     if check(space1,k,n) == True:
         return True
     return False
-    
-
-
 
 
 def solution(key, lock):
@@ -96,9 +101,6 @@ def solution(key, lock):
 
                 if test(space1, k_rota, i, j, x,k,n) == True:
                     return True
-
-
-                
 
     return False
 '''

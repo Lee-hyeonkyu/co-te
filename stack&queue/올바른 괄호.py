@@ -1,5 +1,6 @@
 s = ")()("
 
+
 def solution(s):
     cnt = 0
     for i in s:
@@ -13,4 +14,6 @@ def solution(s):
         return True
     else:
         return False
+
+
 print(solution(s))

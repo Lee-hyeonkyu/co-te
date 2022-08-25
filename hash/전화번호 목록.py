@@ -10,6 +10,6 @@ def solution(phone_book):
             temp += j
 
             if temp in dic and temp != i:
-                answer =  False
+                answer = False
 
     return answer

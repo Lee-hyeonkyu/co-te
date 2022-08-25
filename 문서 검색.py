@@ -1,14 +1,14 @@
 
 stg = input()
 srch = input()
-step, cnt = 0,0
-while step <= len(stg)- len(srch):
-    if stg[step:step+ len(srch)] == srch:
-        cnt +=1
+step, cnt = 0, 0
+while step <= len(stg) - len(srch):
+    if stg[step:step + len(srch)] == srch:
+        cnt += 1
         step += len(srch)
     else:
-        step+=1
-    
+        step += 1
+
 print(cnt)
 
 # doc = input().strip()

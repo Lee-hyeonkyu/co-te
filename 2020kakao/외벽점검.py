@@ -1,8 +1,8 @@
 from itertools import permutations
-from collections import deque
+
 n = 12
-weak = [1,5,6,10]
-dist = [1,2,3,4]
+weak = [1, 5, 6, 10]
+dist = [1, 2, 3, 4]
 
 
 # def solution(n, weak, dist):
@@ -37,13 +37,13 @@ dist = [1,2,3,4]
 #                     q.append((c[:idx] + c[idx+1:], left_i[:-1],w,left_i[-1]))
 #             if not (rc_n < 1 and len(rc) > len(left_i)):
 #                 for idx, w in enumerate(rc):
-#                     q.append((rc[:idx]+ rc[idx+1:], left_i[:-1],w,left_i[-1]))
+#                     q.append((rc[:idx]+ rc[idx+1:],left_i[:-1],w,left_i[-1]))
 #     return answer
 
 
 # print(solution(n, weak, dist))
 
-def solution(n,weak,dist):
+def solution(n, weak, dist):
     people = 9
     w_s = len(weak)
     weak = weak + [w+n for w in weak]
@@ -58,7 +58,7 @@ def solution(n,weak,dist):
                 distance = weak[next] - weak[current]
                 if distance > p[cnt-1]:
                     current = next
-                    cnt +=1
+                    cnt += 1
                     if cnt > len(dist):
                         break
             if cnt <= len(dist):
@@ -69,4 +69,4 @@ def solution(n,weak,dist):
     return people
 
 
-print(solution(n,weak,dist))
+print(solution(n, weak, dist))

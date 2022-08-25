@@ -8,5 +8,5 @@ def solution(clothes):
 
     cnt = 1
     for i in answer.values():
-        cnt *=(i+1)
-    return cnt-1
+        cnt *= (i + 1)
+    return cnt - 1

@@ -10,6 +10,6 @@ for i in range(n):
 lst.sort()
 
 for i in range(n):
-    cnt += abs(lst[i]-(i+1))
+    cnt += abs(lst[i] - (i + 1))
 
 print(cnt)

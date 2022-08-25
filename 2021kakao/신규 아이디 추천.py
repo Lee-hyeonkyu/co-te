@@ -1,13 +1,14 @@
 import re
 new_id = "abcdefghijklmn.p"
 
+
 def solution(new_id):
     # 1.
     new_id = new_id.lower()
     # 2.
-    new_id = re.sub('[^a-z-_\.0-9]', '', new_id)
+    new_id = re.sub(r'[^a-z-_\.0-9]', '', new_id)
     # 3.
-    new_id = re.sub('[\.]+', '.', new_id)
+    new_id = re.sub(r'[\.]+', '.', new_id)
     # 4.
     new_id = new_id.strip(".")
     # 5.
@@ -19,10 +20,9 @@ def solution(new_id):
         if new_id[-1] == ".":
             new_id = new_id.rstrip(".")
     # 7.
-    while len(new_id) <3:
+    while len(new_id) < 3:
         new_id += new_id[-1]
-
     return new_id
 
-print(solution(new_id))
 
+print(solution(new_id))

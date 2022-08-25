@@ -15,6 +15,7 @@ def dfs(k, cnt, dungeons):
             visited[j] = 0
     print(cnt)
 
+
 def solution(k, dungeons):
     global N, visited
     N = len(dungeons)

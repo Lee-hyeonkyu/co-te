@@ -1,5 +1,6 @@
 array = [1, 5, 2, 6, 3, 7, 4]
-commands =[[2, 5, 3], [4, 4, 1], [1, 7, 3]]
+commands = [[2, 5, 3], [4, 4, 1], [1, 7, 3]]
+
 
 def solution(array, commands):
     answer = []
@@ -12,7 +13,8 @@ def solution(array, commands):
 
     return answer
 
-print(solution(array,commands))
+
+print(solution(array, commands))
 
 # for i in commands:
 #     a = sorted(array[i[0]-1:i[1]])

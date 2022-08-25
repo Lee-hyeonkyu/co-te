@@ -14,11 +14,11 @@ def solution(s):
 
         # i 부터 i 이후의 문자열 끝까지 도는 반복문
         for j in range(i, len(s), i):
-            # 반복되는 문자열과 같은지 확인 
-            if tmp== s[j:i+j]:
-                cnt +=1
+            # 반복되는 문자열과 같은지 확인
+            if tmp == s[j:i+j]:
+                cnt += 1
             else:
-                # 길이가 1이면 숫자없이 문자만 아니면 숫자와 문자 
+                # 길이가 1이면 숫자없이 문자만 아니면 숫자와 문자
                 if cnt == 1:
                     string += tmp
                 else:
