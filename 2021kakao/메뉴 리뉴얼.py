@@ -18,7 +18,7 @@ def solution(orders, course):
             if m >=2:
                 for k,v in x.items():
                     if v == m:
-                        answer.append("".join(map(str,k)))
+                        answer.append("".join(k))
 
     return sorted(answer)
 

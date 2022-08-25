@@ -47,6 +47,7 @@ def solution(info, query):
                 for food in ['pizza','chicken','-']:
                     hable.setdefault((lang,pos,car,food),[])
 
+    print(hable)
     for i in info:
         [lang, pos, car, food, score] = i.split()
         for l in [lang,'-']:
