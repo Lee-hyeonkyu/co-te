@@ -41,7 +41,6 @@ def solution(play_time, adv_time, logs):
         if view < ttime:
             view = ttime
             max_time = i + 1 - adtam
-
     return int_tostr(max_time)
 
 
