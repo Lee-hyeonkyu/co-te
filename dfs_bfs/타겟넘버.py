@@ -1,6 +1,8 @@
 numbers = [1, 1, 1, 1, 1]
 target = 3
 
+# BFS
+
 
 def solution(numbers, target):
     answer = 0
@@ -21,6 +23,8 @@ def solution(numbers, target):
 
 print(solution(numbers, target))
 
+
+# DFS
 
 def solution(numbers, target):
     answer = DFS(numbers, target, 0)
