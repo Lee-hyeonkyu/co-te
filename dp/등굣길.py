@@ -10,7 +10,7 @@ def solution(m, n, puddles):
         for x in range(1, m+1):
             if y == 1 and x == 1:
                 continue
-            if [x, y] in puddles:
+            elif [x, y] in puddles:
                 dp[y][x] = 0
             else:
                 dp[y][x] = dp[y-1][x] + dp[y][x-1]

@@ -1,3 +1,7 @@
-x = [2, 3, 4, 6, 1, 8, 9]
+x = [3, 4, 61, 23, 0, 6, 7, 8]
 
-print(set(x))
+for i in x:
+    print(i)
+    x.remove(i)
+
+print(x)

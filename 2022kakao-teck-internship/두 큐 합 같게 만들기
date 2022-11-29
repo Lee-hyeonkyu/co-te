@@ -1,0 +1,35 @@
+from collections import deque
+
+
+def solution(queue1, queue2):
+    answer = 0
+    q_1 = sum(queue1)
+    q_2 = sum(queue2)
+    lst = q_1 + q_2
+    y = len(queue1) * 4
+    if lst % 2:
+        return -1
+    queue1 = deque(queue1)
+    queue2 = deque(queue2)
+    while answer <= y:
+        if q_1 > q_2:
+            t = queue1.popleft()
+            queue2.append(t)
+            q_1 -= t
+            q_2 += t
+            answer += 1
+        elif q_2 > q_1:
+            t = queue2.popleft()
+            queue1.append(t)
+            q_2 -= t
+            q_1 += t
+            answer += 1
+        else:
+            return answer
+    return -1
+
+
+queue1 = [1, 1]
+queue2 = [1, 5]
+
+print(solution(queue1, queue2))
