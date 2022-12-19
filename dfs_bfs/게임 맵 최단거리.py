@@ -6,38 +6,28 @@ maps = [[1, 0, 1, 1, 1], [1, 0, 1, 0, 1], [
 
 
 def solution(maps):
-    # 테스트 19 실패(런타임)
-    # if (maps[-1][-2] == 0) and (maps[-2][-2:] == [0, 0]):
-    #     return -1
-    map = copy.deepcopy(maps)
     n = len(maps)
     m = len(maps[0])
+
     dx = [-1, 1, 0, 0]
     dy = [0, 0, -1, 1]
 
-    queue = deque()
-    queue.append((0, 0))
+    q = deque()
+    q.append([0, 0])
 
-    while queue:
-        x, y = queue.popleft()
-
+    while q:
+        x, y = q.popleft()
         for i in range(4):
             nx = x + dx[i]
             ny = y + dy[i]
+            if 0 <= nx < n and 0 <= ny < m and maps[nx][ny] == 1:
+                maps[nx][ny] = maps[x][y] + 1
+                q.append([nx, ny])
 
-            if nx < 0 or ny < 0 or nx >= n or ny >= m:
-                continue
-            if map[nx][ny] == 0:
-                continue
-            if map[nx][ny] == 1:
-                map[nx][ny] = map[x][y] + 1
-                queue.append((nx, ny))
-    print(map)
-    if map[n-1][m-1] == 1:
-        answer = -1
-    else:
-        answer = map[n-1][m-1]
-    return answer
+    if maps[n-1][m-1] == 1:
+        return -1
+
+    return maps[n-1][m-1]
 
 
 print(solution(maps))
