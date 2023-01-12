@@ -1,35 +1,33 @@
-# import math
+# n = int(input())
 
-# x = [1, 6, 10, 2, 1, 5, 2]
-# # x = [1, 2, 3, 10, 5, 4, 2]
-# # x = [1, 10, 6, 3, 4, 1, 2]
-# # x = [6, 8, 4]
-# # x = [1, 10, 3, 1]
-# # x = [1, 1, 1, 2000]
-# while 1:
-#     m = sum(x)/len(x)
-#     if x[-1] < m:
-#         x = x[:-1]
-#         print(x)
-#     else:
-#         x[-1] >= m
-#         if m < x[-2] + x[-1] - m:
+# dp = [0 for _ in range(n+1)]
+# lst = [0 for _ in range(n+1)]
 
+# for i in range(2, n+1):
+#     dp[i] = dp[i-1]+1
+#     lst[i] = i-1
 
-# m = sum(x)/len(x)
-# print(math.ceil(m))
+#     if not i % 3 and dp[i] > dp[i//3]+1:
+#         dp[i] = dp[i//3]+1
+#         lst[i] = i//3
+#     if not i % 2 and dp[i] > dp[i//2]+1:
+#         dp[i] = dp[i//2]+1
+#         lst[i] = i//2
 
-# n = 10
-# for i in [n/2, n/3, n-1]:
-#     if int(i) == i:
-#         print(True)
-#     else:
-#         print(False)
+# print(dp[n])
+# print(n, end=' ')
+
+# b_n = n
+
+# while lst[b_n]:
+#     print(lst[b_n], end=' ')
+#     b_n = lst[b_n]
 
 
-import sys
+# 2
+
+
 from collections import deque
-
 
 k = int(input())
 dyn = [1e9 for _ in range(k+1)]
@@ -49,7 +47,7 @@ while current:
                 root[i] = n
                 current.append((i, count+1))
 
-
+print(root)
 target = 1
 ans = str(target)
 while target != k:
