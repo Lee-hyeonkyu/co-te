@@ -1,5 +1,7 @@
-# import math
+import numpy as np
+n, m = map(int, input().split())
 
+<<<<<<< HEAD
 # x = [1, 6, 10, 2, 1, 5, 2]
 # # x = [1, 2, 3, 10, 5, 4, 2]
 # # x = [1, 10, 6, 3, 4, 1, 2]
@@ -57,3 +59,9 @@ while target != k:
     ans = str(target) + " " + ans
 print(dyn[1])
 print(ans)
+=======
+x = np.array([list(map(int, input().split()))for _ in range(n)])
+y = np.array([list(map(int, input().split()))for _ in range(n)])
+for i in x+y:
+    print(*i)
+>>>>>>> 873c90f41b309d7b349a83daf09bf7f2fd9d118e

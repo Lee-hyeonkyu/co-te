@@ -65,5 +65,8 @@ for i in range(1, 11):
     a.add(i)
 
 
-a.delete(5)
-print(a.search_node(8))
+# a.delete(5)
+
+
+print(a.show_node())
+# print(a.search_node(8))
