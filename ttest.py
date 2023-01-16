@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import numpy as np
 n, m = map(int, input().split())
 
@@ -65,3 +66,6 @@ y = np.array([list(map(int, input().split()))for _ in range(n)])
 for i in x+y:
     print(*i)
 >>>>>>> 873c90f41b309d7b349a83daf09bf7f2fd9d118e
+=======
+print(24//1)
+>>>>>>> 76a3a6a (.)
