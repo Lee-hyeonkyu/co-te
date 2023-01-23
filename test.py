@@ -1,22 +1,25 @@
-import sys
-input = sys.stdin.readline
+n, k = map(int, input().split())
+
+cnt = 0
+
+# while 1:
+#     num = (n//k) * k
+#     cnt += (n - num)
+#     n = num
+#     if n < k:
+#         break
+#     cnt += 1
+#     n //= k
+
+# cnt += (n-1)
+
+while n != 1:
+    if n % k:
+        cnt += 1
+        n -= 1
+    else:
+        cnt += 1
+        n //= k
 
 
-def star(n):
-    if n == 3:
-        return ["***", "* *", "***"]
-
-    S = star(n//3)
-    L = []
-
-    for i in S:
-        L.append(i*3)
-    for i in S:
-        L.append(i + " "*(n//3) + i)
-    for i in S:
-        L.append(i*3)
-    return L
-
-
-n = int(input())
-print("\n".join(star(n)))
+print(cnt)
