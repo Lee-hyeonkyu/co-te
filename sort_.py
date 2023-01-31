@@ -72,3 +72,37 @@ def count_sort(array):
         for _ in range(count[i]):
             new_array.append(i)
     return new_array
+
+
+# Heap sort (힙 정렬)
+
+# 힙을 이용하여 정렬
+# 시간복잡도 O(NlogN)
+array = [7, 5, 9, 0, 3, 1, 6, 2, 9, 1, 4, 8, 0, 5, 2]
+
+
+def heap_sort(array):
+    n = len(array)
+
+    for i in range(n):
+        child = i
+        while child:
+            root = (child - 1) // 2
+            if (array[root] < array[child]):
+                array[root], array[child] = array[child], array[root]
+            child = root
+
+    for j in range(n-1, -1, -1):
+        array[0], array[j] = array[j], array[0]
+        child = 1
+        root = 0
+
+        while child < j:
+            child = root * 2 + 1
+            if child < j-1 and array[child] < array[child + 1]:
+                child += 1
+            if child < j and array[root] < array[child]:
+                array[root], array[child] = array[child], array[root]
+
+            root = child
+    return array
