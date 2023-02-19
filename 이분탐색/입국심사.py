@@ -20,3 +20,27 @@ def solution(n, times):
 
 
 print(solution(n, times))
+
+
+# =============================
+
+
+n, m = map(int, input().split())
+lst = [int(input()) for _ in range(n)]
+
+start = 0
+end = 1_000_000_000_000_000_000
+
+
+while start+1 < end:
+    center = (start+end)//2
+    tmp = 0
+    for i in lst:
+        tmp += center // i
+
+    if tmp >= m:
+        end = center
+    else:
+        start = center
+
+print(end)
