@@ -1,3 +1,5 @@
+############# 실패 ####################
+
 grid = ["SL", "LR"]
 
 
@@ -36,7 +38,6 @@ def dfs(board, x, y, cnt, dir):
     dx, dy = dir[0]
     nx = dx + x
     ny = dy + y
-    print(nx, ny)
     # 배열 안 체크
     if 0 <= nx < len(board) and 0 <= ny < len(board[0]):
         if (nx % 2) and (ny % 2):
@@ -63,7 +64,7 @@ def solution(grid):
     words = "".join(grid)
     words = iter(words)
     # board init
-    board = [(len(grid[0]) * 2 + 1) * [[]] for _ in range(len(grid) * 2 + 1)]
+    board = [[[] for _ in range(len(grid[0]) * 2 + 1)] for _ in range(len(grid) * 2 + 1)]
     for i in range(1, len(board), 2):
         for j in range(1, len(board[0]), 2):
             board[i][j] = next(words)
@@ -75,6 +76,7 @@ def solution(grid):
         dir = [[-1, 0], [0, -1], [1, 0], [0, 1]]
         dir = dir[-i:] + dir[:-i]
         cnt = dfs(board, 1, 1, 0, dir)
+        print(board)
         # 한번이라도 안간 방향이 있다면 추가
         if cnt:
             answer.append(cnt)
@@ -85,3 +87,72 @@ def solution(grid):
 
 
 print(solution(grid))
+
+
+
+
+
+
+###########성공############
+
+
+grid = ["R","R"]
+
+def rotate(change, dir):
+    if change == "R":
+        dir = dir[-1:] + dir[:-1]
+    elif change == "L":
+        dir = dir[1:] + [dir[0]]
+    return dir
+
+def solution(grid):
+    words = "".join(grid)
+    words = iter(words)
+    # board init
+    board = [[[] for _ in range(len(grid[0]) * 2 + 1)] for _ in range(len(grid) * 2 + 1)]
+    for i in range(1, len(board), 2):
+        for j in range(1, len(board[0]), 2):
+            board[i][j] = next(words)
+    answer = []
+    
+    for i in board:
+        print(i)
+    print()
+    #시작 네방향 체크
+    for i in range(4):
+        dir = [[-1, 0], [0, -1], [1, 0], [0, 1]]
+        dir = dir[(i%4):]+dir[:(i%4)]
+        pos_ = [[k, h] for k in range(1,len(board),2) for h in range(1,len(board[0]),2)]
+        for _ in range(len(pos_)):
+            tmp = pos_.pop()
+            cnt = -1
+            position = []
+            position.append(tmp)
+            while position:
+                x,y = position.pop()
+                print(x,y)
+                print("dir",dir[0])
+                if x%2 and y%2:
+                    cnt += 1
+                    dir = rotate(board[x][y],dir)
+                else:
+                    if dir[0] not in board[x][y]:
+                        board[x][y].append(dir[0])
+                    else:
+                        break
+                dx, dy = dir[0]
+                nx = (dx + x)% len(board)
+                ny = (dy + y)% len(board[0])
+                position.append([nx,ny])
+            if cnt>=1:
+                answer.append(cnt)
+        for i in board:
+            print(i)
+                
+    answer.sort()
+    return answer
+
+print(solution(grid))
+
+# ["S", "S"] = [1,1,1,1,2,2]
+
