@@ -26,6 +26,7 @@ def tlpo(board, nx, ny):
     return nx, ny
 
 
+# 0번째가 머리(forward)가 되는 방식입니다.
 def rotate(change, dir):
     if change == "R":
         dir = [dir[-1]] + dir[:-1]
@@ -72,7 +73,6 @@ def solution(grid):
 
     # 시작 네방향 체크
     for i in range(4):
-        print("###@@")
         dir = [[-1, 0], [0, -1], [1, 0], [0, 1]]
         dir = dir[-i:] + dir[:-i]
         cnt = dfs(board, 1, 1, 0, dir)
