@@ -20,3 +20,23 @@ def solution(book_time):
             answer += 1
 
     return answer
+
+
+################### 누적합
+
+def c_s(arr):
+    lst = [0 for _ in range(len(arr)+1)]
+    for i in range(len(arr)):
+        lst[i+1] = lst[i] + arr[i]
+    return lst
+
+def solution(book_time):
+    ck_time = [0 for _ in range(24*60)]
+    for ckin,ckout in book_time:
+        ckin = int(ckin[:2]) * 60 + int(ckin[3:])
+        ckout = int(ckout[:2]) * 60 + int(ckout[3:]) + 10
+        if ckout > 20*64-1:
+            ckout = 20*64-1
+        ck_time[ckin] += 1
+        ck_time[ckout] -= 1
+    return max(c_s(ck_time))
