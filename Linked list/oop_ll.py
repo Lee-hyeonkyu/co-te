@@ -50,6 +50,7 @@ class Linked_List:
                 node = node.next
         return False
 
+
 # def search_node(self,data):
 #     node = self.head
 #     while node:
@@ -68,5 +69,5 @@ for i in range(1, 11):
 # a.delete(5)
 
 
-print(a.show_node())
+a.show_node()
 # print(a.search_node(8))
