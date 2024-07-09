@@ -46,10 +46,11 @@ def solution(a, b, g, s, w, t):
         for i in range(len(g)):
             tmp = mid // t[i]
             cnt = tmp // 2 + tmp % 2
-
             gold += min(g[i], w[i] * cnt)
             silver += min(s[i], w[i] * cnt)
             total += min(g[i] + s[i], w[i] * cnt)
+            # print(cnt, gold, silver, total)
+            # print(left, mid, right, cnt)
 
         if gold < a or silver < b or total < a + b:
             left = mid + 1
@@ -57,3 +58,6 @@ def solution(a, b, g, s, w, t):
             right = mid
 
     return right
+
+
+print(solution(a, b, g, s, w, t))
