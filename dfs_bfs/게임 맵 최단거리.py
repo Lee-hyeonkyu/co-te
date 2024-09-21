@@ -1,8 +1,13 @@
 from collections import deque
 import copy
 
-maps = [[1, 0, 1, 1, 1], [1, 0, 1, 0, 1], [
-    1, 0, 1, 1, 1], [1, 1, 1, 0, 1], [0, 0, 0, 0, 1]]
+maps = [
+    [1, 0, 1, 1, 1],
+    [1, 0, 1, 0, 1],
+    [1, 0, 1, 1, 1],
+    [1, 1, 1, 0, 1],
+    [0, 0, 0, 0, 1],
+]
 
 
 def solution(maps):
@@ -24,10 +29,10 @@ def solution(maps):
                 maps[nx][ny] = maps[x][y] + 1
                 q.append([nx, ny])
 
-    if maps[n-1][m-1] == 1:
+    if maps[n - 1][m - 1] == 1:
         return -1
 
-    return maps[n-1][m-1]
+    return maps[n - 1][m - 1]
 
 
 print(solution(maps))
