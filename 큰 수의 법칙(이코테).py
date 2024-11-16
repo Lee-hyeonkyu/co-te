@@ -8,8 +8,8 @@ lst = [2, 4, 5, 4, 6]
 def solution(n, m, k, lst):
     answer = 0
     lst.sort()
-    first = lst[n-1]
-    second = lst[n-2]
+    first = lst[n - 1]
+    second = lst[n - 2]
 
     while 1:
         for i in range(k):
@@ -38,11 +38,11 @@ s_1time = time.time()
 def solution_2(n, m, k, lst):
     answer = 0
     lst.sort()
-    first = lst[n-1]
-    second = lst[n-2]
+    first = lst[n - 1]
+    second = lst[n - 2]
 
-    cnt = int(m/(k+1)) * k
-    cnt += m % (k+1)
+    cnt = int(m / (k + 1)) * k
+    cnt += m % (k + 1)
 
     answer += cnt * first
     answer += (m - cnt) * second
@@ -54,4 +54,4 @@ solution_2(n, m, k, lst)
 
 e_1time = time.time()
 
-print('2번 풀이 시간:', e_1time - s_1time)
+print("2번 풀이 시간:", e_1time - s_1time)
